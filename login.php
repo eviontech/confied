@@ -1,4 +1,4 @@
-<?php session_destroy();?>
+<?php session_start(); if(isset($_SESSION)){session_destroy();}?>
 <!DOCTYPE html>
 <html lang="en">
 
