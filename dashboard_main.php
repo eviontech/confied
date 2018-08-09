@@ -1,3 +1,5 @@
+<?php include('session.php');?>
+<?php include('main_session.php');?>
 <?php include('main-header.php');?>
 			<!--== BODY INNER CONTAINER ==-->
 			<div class="sb2-2">

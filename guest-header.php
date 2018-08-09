@@ -348,11 +348,11 @@
 				<div class="tz-l-2">
 					<ul>
 						<li>
-							<a href="dashboard.html" class="tz-lma">
+							<a href="dashboard_guest.php" class="tz-lma">
 								<img src="images/icon/dbl1.png" alt="" /> My Dashboard</a>
 						</li>
 						<li>
-							<a href="db-my-profile.php">
+							<a href="guest-my-profile.php">
 								<img src="images/icon/dbl6.png" alt="" /> My Profile</a>
 						</li>
 						<li>
@@ -368,7 +368,7 @@
 								<img src="images/icon/dbl9.png" alt=""> Upgrade To Pro</a>
 						</li>
 						<li>
-							<a href="db-setting.php">
+							<a href="guest-setting.php">
 								<img src="images/icon/dbl210.png" alt="" /> Setting</a>
 						</li>
 						<li>
