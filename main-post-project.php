@@ -1,6 +1,15 @@
 <?php include('session.php');?>
 <?php include('main_session.php');?>
 <?php include('main-header.php');?>
+<style>
+	::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+	::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+	::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+		color: transparent;
+	}
+	input::-webkit-datetime-edit{ color: transparent; }
+ 
+</style>
 			<!--== BODY INNER CONTAINER ==-->
 			<div class="sb2-2">
 				<!--== breadcrumbs ==-->
@@ -50,18 +59,18 @@
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<input id="list_addr" type="text" class="validate">
-															<label for="list_addr">Address</label>
+															<input id="project_address" type="text" class="validate">
+															<label for="project_address">Address</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s6">
-															<input id="approx_budget" type="text" class="validate">
+															<input id="approx_budget" type="number" min="0" class="validate">
 															<label for="approx_budget">Approx Budget</label>
 														</div>
 														<div class="input-field col s6">
-															<input id="approx_budget" type="date" class="validate">
-															<label for="approx_budget"></label>
+															<input id="project_date" type="date" class="validate">
+															<label for="project_date">Start date</label>
 														</div>
 													</div>
 													<div class="row">
@@ -76,7 +85,7 @@
 														<div class="file-field input-field">
 															<div class="tz-up-btn">
 																<span>File</span>
-																<input type="file"> </div>
+																<input id="image" type="file"> </div>
 															<div class="file-path-wrapper db-v2-pg-inp">
 																<input class="file-path validate" type="text">
 															</div>
@@ -94,7 +103,7 @@
 														<div class="file-field input-field">
 															<div class="tz-up-btn">
 																<span>File</span>
-																<input type="file" multiple> </div>
+																<input type="file" id="image_multiple" multiple> </div>
 															<div class="file-path-wrapper db-v2-pg-inp">
 																<input class="file-path validate" type="text">
 															</div>
@@ -102,7 +111,7 @@
 													</div>
 													<div class="row">
 														<div class="input-field col s12 v2-mar-top-40">
-															<a class="waves-effect waves-light btn-large full-btn" href="db-payment.html">Submit Listing</a>
+															<a onclick='post()' class="waves-effect waves-light btn-large full-btn">Submit Listing</a>
 														</div>
 													</div>
 												</form>
@@ -153,8 +162,57 @@
 	<script src="js/materialize.min.js" type="text/javascript"></script>
 	<script src="js/custom.js"></script>
 </body>
+<script>
+	/*document.getElementById('approx_budget').addEventListener('keydown', function(e) {
+    var key   = e.keyCode ? e.keyCode : e.which;
 
-
-<!-- Mirrored from www.rn53themes.net/themes/demo/directory/admin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Sep 2017 11:08:24 GMT -->
-
+    if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+         (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+         (key >= 35 && key <= 40) ||
+         (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+         (key >= 96 && key <= 105)
+       )) e.preventDefault();
+	});*/
+	function post(){
+		$title = document.getElementById("project_title").value;
+		$desc = document.getElementById("project_desc").value;
+		$area = document.getElementById("project_area").value;
+		$city = document.getElementById("project_city").value;
+		$address = document.getElementById("project_address").value;
+		$date = document.getElementById("project_date").value;
+		$budget = document.getElementById("approx_budget").value;
+		$image = document.getElementById("image").value;
+		$mimage = document.getElementById("image_multiple").value;
+		data = "title : "+$title+", description : "+$desc+", area : "+$area +", city : "+$city +", address : "+$address  + ", image : "+$image +", date : "+$date +", budget : "+$budget +", mimage : "+$mimage;
+		//alert($data);
+		$.ajax({
+				type: "POST",
+				dataType: "text",
+				data: {title : $title , description : $desc, area : $area , city : $city , address : $address  , image : $image , date : $date , budget : $budget , mimage : $mimage},
+				url: 'post_project.php',
+				success: function(response) {
+					alert(response);
+				},
+				error: function (jqXHR, exception) {
+					var msg = '';
+					if (jqXHR.status === 0) {
+						msg = 'Not connect.\n Verify Network.';
+					} else if (jqXHR.status == 404) {
+						msg = 'Requested page not found. [404]';
+					} else if (jqXHR.status == 500) {
+						msg = 'Internal Server Error [500].';
+					} else if (exception === 'parsererror') {
+						msg = 'Requested JSON parse failed.';
+					} else if (exception === 'timeout') {
+						msg = 'Time out error.';
+					} else if (exception === 'abort') {
+						msg = 'Ajax request aborted.';
+					} else {
+						msg = 'Uncaught Error.\n' + jqXHR.responseText;
+					}
+					alert(msg);
+				},
+			});
+	}
+</script>
 </html>
