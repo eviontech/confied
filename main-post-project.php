@@ -27,49 +27,48 @@
 				<div class="tz-2 tz-2-admin">
 					<div class="tz-2-com tz-2-main">
 						<h4>Post a Project</h4>
-
 						<div class="split-row">
 							<div class="col-md-12">
 								<div class="box-inn-sp ad-inn-page">
 									<div class="tab-inn ad-tab-inn">
 										<div class="hom-cre-acc-left hom-cre-acc-right">
 											<div class="">
-												<form class="">
+												<form method="post" action="post_project.php" id="post_form" enctype="multipart/form-data">
 													<div class="row">
 														<div class="input-field col s12">
-															<input id="project_title" type="text" class="validate">
+															<input id="project_title" name="project_title" type="text" class="validate">
 															<label for="project_title">Project Title</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<textarea id="project_desc" type="text" class="materialize-textarea"></textarea>
+															<textarea id="project_desc" name="project_desc" type="text" class="materialize-textarea"></textarea>
 															<label for="project_desc">Project Description</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s6">
-															<input id="project_area" type="text" class="validate">
+															<input id="project_area" name="project_area" type="text" class="validate">
 															<label for="project_area">Area</label>
 														</div>
 														<div class="input-field col s6">
-															<input id="project_city" type="text" class="validate">
+															<input id="project_city" name="project_city" type="text" class="validate">
 															<label for="project_city">City</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<input id="project_address" type="text" class="validate">
+															<input id="project_address" name="project_address" type="text" class="validate">
 															<label for="project_address">Address</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s6">
-															<input id="approx_budget" type="number" min="0" class="validate">
+															<input id="approx_budget" name="approx_budget" type="number" min="0" class="validate">
 															<label for="approx_budget">Approx Budget</label>
 														</div>
 														<div class="input-field col s6">
-															<input id="project_date" type="date" class="validate">
+															<input id="project_date" name="project_date" type="date" class="validate">
 															<label for="project_date">Start date</label>
 														</div>
 													</div>
@@ -85,7 +84,7 @@
 														<div class="file-field input-field">
 															<div class="tz-up-btn">
 																<span>File</span>
-																<input id="image" type="file"> </div>
+																<input id="image" name="image" type="file"> </div>
 															<div class="file-path-wrapper db-v2-pg-inp">
 																<input class="file-path validate" type="text">
 															</div>
@@ -103,7 +102,7 @@
 														<div class="file-field input-field">
 															<div class="tz-up-btn">
 																<span>File</span>
-																<input type="file" id="image_multiple" multiple> </div>
+																<input type="file" id="image_multiple" name="image_multiple" multiple> </div>
 															<div class="file-path-wrapper db-v2-pg-inp">
 																<input class="file-path validate" type="text">
 															</div>
@@ -111,7 +110,7 @@
 													</div>
 													<div class="row">
 														<div class="input-field col s12 v2-mar-top-40">
-															<a onclick='post()' class="waves-effect waves-light btn-large full-btn">Submit Listing</a>
+															<a onclick="post_pro()" class="waves-effect waves-light btn-large full-btn">Submit Listing</a>
 														</div>
 													</div>
 												</form>
@@ -121,41 +120,13 @@
 								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--== BOTTOM FLOAT ICON ==-->
-	<section>
-		<div class="fixed-action-btn vertical">
-			<a class="btn-floating btn-large red pulse">
-				<i class="large material-icons">mode_edit</i>
-			</a>
-			<ul>
-				<li>
-					<a class="btn-floating red">
-						<i class="material-icons">insert_chart</i>
-					</a>
-				</li>
-				<li>
-					<a class="btn-floating yellow darken-1">
-						<i class="material-icons">format_quote</i>
-					</a>
-				</li>
-				<li>
-					<a class="btn-floating green">
-						<i class="material-icons">publish</i>
-					</a>
-				</li>
-				<li>
-					<a class="btn-floating blue">
-						<i class="material-icons">attach_file</i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</section>
+	
 	<!--SCRIPT FILES-->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
@@ -163,6 +134,10 @@
 	<script src="js/custom.js"></script>
 </body>
 <script>
+	function post_pro(){
+		document.getElementById('post_form').submit();
+	}
+	
 	/*document.getElementById('approx_budget').addEventListener('keydown', function(e) {
     var key   = e.keyCode ? e.keyCode : e.which;
 
@@ -173,7 +148,7 @@
          (key >= 96 && key <= 105)
        )) e.preventDefault();
 	});*/
-	function post(){
+	/*function post(){
 		$title = document.getElementById("project_title").value;
 		$desc = document.getElementById("project_desc").value;
 		$area = document.getElementById("project_area").value;
@@ -213,6 +188,6 @@
 					alert(msg);
 				},
 			});
-	}
+	}*/
 </script>
 </html>
