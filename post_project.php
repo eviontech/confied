@@ -1,5 +1,6 @@
 <?php
-    print_r($_POST);
+    //print_r($_POST);
+    print_r($_FILES['image_multiple']['name']);
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -37,7 +38,7 @@
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+            //echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

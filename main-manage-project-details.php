@@ -282,7 +282,7 @@
 														</div>
 													</div>
 													<div class="row tz-file-upload">
-														<div class="file-field input-field">
+														<div class="file-field input-field col-sm-11">
 															<div class="tz-up-btn">
 																<span>File</span>
 																<input type="file" multiple> </div>
@@ -290,6 +290,7 @@
 																<input class="file-path validate" type="text">
 															</div>
 														</div>
+															<a class="col-sm-1 waves-effect waves-light btn-large" style="background-color: red; Background-opacity:10%; " href="db-payment.html">X</a>
 													</div>
 													<div class="row">
 														<div class="input-field col s12 v2-mar-top-40">
