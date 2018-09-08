@@ -1,156 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+	echo 'asdas';
+	include('session.php');
+	include('main_session.php');
 
-
-<!-- Mirrored from www.rn53themes.net/themes/demo/directory/admin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Sep 2017 11:08:23 GMT -->
-
-<head>
-	<title>Main Dashboard</title>
-	<!-- META TAGS -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- FAV ICON(BROWSER TAB ICON) -->
-	<link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
-	<!-- GOOGLE FONT -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:500,700" rel="stylesheet">
-	<!-- FONTAWESOME ICONS -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<!-- ALL CSS FILES -->
-	<link href="css/materialize.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-	<link href="css/responsive.css" rel="stylesheet">
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-</head>
-
-<body>
-	<div id="preloader">
-		<div id="status">&nbsp;</div>
-	</div>
-	<!--== MAIN CONTRAINER ==-->
-	<div class="container-fluid sb1">
-		<div class="row">
-			<!--== LOGO ==-->
-			<div class="col-md-2 col-sm-3 col-xs-6 sb1-1">
-				<a href="#" class="btn-close-menu">
-					<i class="fa fa-times" aria-hidden="true"></i>
-				</a>
-				<a href="#" class="atab-menu">
-					<i class="fa fa-bars tab-menu" aria-hidden="true"></i>
-				</a>
-				<a href="main.html" class="logo">
-					<img src="images/logo1.png" alt="" /> </a>
-			</div>
-			<!--== SEARCH ==-->
-			<div class="col-md-8 col-sm-6 mob-hide">
-				<form class="app-search">
-					<input type="text" placeholder="Search..." class="form-control">
-					<a href="#">
-						<i class="fa fa-search"></i>
-					</a>
-				</form>
-			</div>
-			<!--== MY ACCCOUNT ==-->
-			<div class="col-md-2 col-sm-3 col-xs-6">
-				<!-- Dropdown Trigger -->
-				<a class='waves-effect dropdown-button top-user-pro' href='#' data-activates='top-menu'>
-					<img src="images/users/6.png" alt="" />Switch Acc.
-					<i class="fa fa-angle-down" aria-hidden="true"></i>
-				</a>
-				<!-- Dropdown Structure -->
-				<ul id='top-menu' class='dropdown-content top-menu-sty'>
-					<li>
-						<a href="" class="waves-effect">
-							<i class="fa fa-cogs"></i>Main Account</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect">
-							<i class="fa fa-cogs"></i>Professional Account</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect">
-							<i class="fa fa-cogs"></i>Contractor Account</a>
-					</li>
-					<li>
-						<a href="" class="waves-effect">
-							<i class="fa fa-cogs"></i>Supllier Account</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="#" class="ho-dr-con-last waves-effect">
-							<i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!--== BODY CONTNAINER ==-->
-	<div class="container-fluid sb2">
-		<div class="row">
-			<div class="sb2-1">
-				<!--== USER INFO ==-->
-				<div class="sb2-12">
-					<ul>
-						<li>
-							<img src="images/users/2.png" alt=""> </li>
-						<li>
-							<h5>Full Name
-								<span> City, State</span>
-							</h5>
-						</li>
-						<li></li>
-					</ul>
-				</div>
-				<!--== LEFT MENU ==-->
-				<div class="sb2-13">
-					<ul class="collapsible" data-collapsible="accordion">
-						<li>
-							<a href="main-dashboard.html" class="menu-active">
-								<i class="fa fa-tachometer" aria-hidden="true"></i>My Dashboard</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-user" aria-hidden="true"></i>My Profile</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-list-ul" aria-hidden="true"></i>Activities</a>
-						</li>
-						<li>
-							<a href="main-manage-projects.html">
-								<i class="fa fa-list-ul" aria-hidden="true"></i>Manage Projects</a>
-						</li>
-						<li>
-							<a href="javascript:void(0)" class="collapsible-header">
-								<i class="fa fa-list-ul" aria-hidden="true"></i>Project Listing</a>
-							<div class="collapsible-body left-sub-menu">
-								<ul>
-									<li>
-										<a href="main-all-listing.html">My listing</a>
-									</li>
-									<li>
-										<a href="main-post-project.html">Post a Project</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-cogs" aria-hidden="true"></i> Setting</a>
-						</li>
-						<li>
-							<a href="#" target="_blank">
-								<i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+	if(isset($_GET['id'])){
+		$project_id = $_GET['id'];
+		$qry_fetch_project = "select * from project where id='$project_id' AND owner=$id;";
+		//echo $qry_fetch_project;
+		$res_fetch_project = mysqli_query($conn,$qry_fetch_project);
+		if(mysqli_num_rows($res_fetch_project) !=1){
+			//echo mysqli_num_rows($res_fetch_project);
+			header('location:main-manage-projects.php');
+		}else{
+			$row_fetch_project = mysqli_fetch_assoc($res_fetch_project);
+		}
+	}else{
+		header('location:main-manage-projects.php');
+	}
+	include('main-header.php');
+	
+?>
 			<!--== BODY INNER CONTAINER ==-->
 			<div class="sb2-2">
 				<!--== breadcrumbs ==-->
@@ -161,17 +30,17 @@
 								<i class="fa fa-home" aria-hidden="true"></i> Home</a>
 						</li>
 						<li class="active-bre">
-							<a href="#">Main Dashboard</a>
+							<a href="#">Main Project</a>
 						</li>
 						<li class="page-back">
-							<a href="#">
+							<a href="main-manage-projects.php`">
 								<i class="fa fa-backward" aria-hidden="true"></i> Back</a>
 						</li>
 					</ul>
 				</div>
 				<div class="tz-2 tz-2-admin">
 					<div class="tz-2-com tz-2-main">
-						<h4>Manage Project</h4>
+						<h4>Manage Project - <?php echo $row_fetch_project['title'];?></h4>
 						<div class="tz-2-main-com bot-sp-20">
 							<div class="tz-2-main-1 tz-2-main-admin">
 								<div class="tz-2-main-2">
@@ -210,49 +79,48 @@
 							<div class="col-md-12">
 								<div class="box-inn-sp ad-inn-page">
 									<div class="inn-title">
-										<h4>Country Campaigns</h4>
-										<p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+										<h4>Project Details</h4>
 									</div>
 									<div class="tab-inn ad-tab-inn">
 										<div class="hom-cre-acc-left hom-cre-acc-right">
 											<div class="">
-												<form class="">
+												<form method="post" action="post_project.php" id="post_form" enctype="multipart/form-data">
 													<div class="row">
 														<div class="input-field col s12">
-															<input id="project_title" type="text" class="validate">
+															<input id="project_title" value="<?php echo $row_fetch_project['title'];?>" name="project_title" type="text" class="validate">
 															<label for="project_title">Project Title</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<textarea id="project_desc" type="text" class="materialize-textarea"></textarea>
+															<textarea id="project_desc" name="project_desc" type="text" class="materialize-textarea"></textarea>
 															<label for="project_desc">Project Description</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s6">
-															<input id="project_area" type="text" class="validate">
+															<input id="project_area" name="project_area" type="text" class="validate">
 															<label for="project_area">Area</label>
 														</div>
 														<div class="input-field col s6">
-															<input id="project_city" type="text" class="validate">
+															<input id="project_city" name="project_city" type="text" class="validate">
 															<label for="project_city">City</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<input id="list_addr" type="text" class="validate">
-															<label for="list_addr">Address</label>
+															<input id="project_address" name="project_address" type="text" class="validate">
+															<label for="project_address">Address</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s6">
-															<input id="approx_budget" type="text" class="validate">
+															<input id="approx_budget" name="approx_budget" type="number" min="0" class="validate">
 															<label for="approx_budget">Approx Budget</label>
 														</div>
 														<div class="input-field col s6">
-															<input id="approx_budget" type="date" class="validate">
-															<label for="approx_budget"></label>
+															<input id="project_date" name="project_date" type="date" class="validate">
+															<label for="project_date">Start date</label>
 														</div>
 													</div>
 													<div class="row">
@@ -267,7 +135,7 @@
 														<div class="file-field input-field">
 															<div class="tz-up-btn">
 																<span>File</span>
-																<input type="file"> </div>
+																<input id="image" name="image" type="file"> </div>
 															<div class="file-path-wrapper db-v2-pg-inp">
 																<input class="file-path validate" type="text">
 															</div>
@@ -282,19 +150,18 @@
 														</div>
 													</div>
 													<div class="row tz-file-upload">
-														<div class="file-field input-field col-sm-11">
+														<div class="file-field input-field">
 															<div class="tz-up-btn">
 																<span>File</span>
-																<input type="file" multiple> </div>
+																<input type="file" id="image_multiple" name="image_multiple" multiple> </div>
 															<div class="file-path-wrapper db-v2-pg-inp">
 																<input class="file-path validate" type="text">
 															</div>
 														</div>
-															<a class="col-sm-1 waves-effect waves-light btn-large" style="background-color: red; Background-opacity:10%; " href="db-payment.html">X</a>
 													</div>
 													<div class="row">
 														<div class="input-field col s12 v2-mar-top-40">
-															<a class="waves-effect waves-light btn-large full-btn" href="db-payment.html">Save</a>
+															<a onclick="post_pro()" class="waves-effect waves-light btn-large full-btn">Submit Listing</a>
 														</div>
 													</div>
 												</form>

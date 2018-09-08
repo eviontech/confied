@@ -11,7 +11,7 @@
 								<i class="fa fa-home" aria-hidden="true"></i> Home</a>
 						</li>
 						<li class="active-bre">
-							<a href="#">Manage Projects</a>
+							<a href="#">Manage Project</a>
 						</li>
 						<li class="page-back">
 							<a href="#">
